@@ -1,0 +1,91 @@
+acrites@mob ~/foo $ terraform apply -var 'prefix=acrites' -var 'aws_profile=mobschool'
+aws_s3_bucket.tf_fail_bucket: Creating...
+  acceleration_status: "" => "<computed>"
+  acl:                 "" => "private"
+  arn:                 "" => "<computed>"
+  bucket:              "" => "acritestf_fail_bucket2"
+  force_destroy:       "" => "false"
+  hosted_zone_id:      "" => "<computed>"
+  region:              "" => "<computed>"
+  tags.%:              "" => "2"
+  tags.Environment:    "" => "dev"
+  tags.Name:           "" => "acrites Bucket"
+  website_domain:      "" => "<computed>"
+  website_endpoint:    "" => "<computed>"
+aws_s3_bucket.tf_fail_bucket: Provisioning with 'local-exec'...
+aws_s3_bucket.tf_fail_bucket (local-exec): Executing: /bin/sh -c "PREFIX=acrites provision/subtf"
+aws_s3_bucket.tf_fail_bucket (local-exec): 2016/08/03 17:00:55 [INFO] Terraform version: 0.7.0  e822a79165dbc06bbf8271ee349fe256867d53dc
+aws_s3_bucket.tf_fail_bucket (local-exec): 2016/08/03 17:00:55 [DEBUG] Detected home directory from env var: /Users/acrites
+aws_s3_bucket.tf_fail_bucket (local-exec): 2016/08/03 17:00:55 [DEBUG] Detected home directory from env var: /Users/acrites
+aws_s3_bucket.tf_fail_bucket (local-exec): 2016/08/03 17:00:55 [DEBUG] Attempting to open CLI config file: /Users/acrites/.terraformrc
+aws_s3_bucket.tf_fail_bucket (local-exec): 2016/08/03 17:00:55 [DEBUG] File doesn't exist, but doesn't need to. Ignoring.
+aws_s3_bucket.tf_fail_bucket (local-exec): 2016/08/03 17:00:55 [DEBUG] Detected home directory from env var: /Users/acrites
+aws_s3_bucket.tf_fail_bucket (local-exec): 2016/08/03 17:00:55 [DEBUG] New state was assigned lineage "ee440016-1863-4e88-acc7-0985c60953cf"
+aws_s3_bucket.tf_fail_bucket (local-exec): 2016/08/03 17:00:55 [TRACE] Graph after step *terraform.ConfigTransformer:
+
+aws_s3_bucket.tf_fail_bucket (local-exec): aws_s3_bucket.subbucket - *terraform.GraphNodeConfigResource
+aws_s3_bucket.tf_fail_bucket (local-exec):   var.prefix - *terraform.GraphNodeConfigVariable
+aws_s3_bucket.tf_fail_bucket (local-exec): var.prefix - *terraform.GraphNodeConfigVariable
+aws_s3_bucket.tf_fail_bucket (local-exec): 2016/08/03 17:00:55 [TRACE] Graph after step *terraform.OrphanTransformer:
+
+aws_s3_bucket.tf_fail_bucket (local-exec): aws_s3_bucket.subbucket - *terraform.GraphNodeConfigResource
+aws_s3_bucket.tf_fail_bucket (local-exec):   var.prefix - *terraform.GraphNodeConfigVariable
+aws_s3_bucket.tf_fail_bucket (local-exec): var.prefix - *terraform.GraphNodeConfigVariable
+aws_s3_bucket.tf_fail_bucket (local-exec): 2016/08/03 17:00:55 [TRACE] Graph after step *terraform.AddOutputOrphanTransformer:
+
+aws_s3_bucket.tf_fail_bucket (local-exec): aws_s3_bucket.subbucket - *terraform.GraphNodeConfigResource
+aws_s3_bucket.tf_fail_bucket (local-exec):   var.prefix - *terraform.GraphNodeConfigVariable
+aws_s3_bucket.tf_fail_bucket (local-exec): var.prefix - *terraform.GraphNodeConfigVariable
+aws_s3_bucket.tf_fail_bucket (local-exec): 2016/08/03 17:00:55 [TRACE] Graph after step *terraform.MissingProviderTransformer:
+
+aws_s3_bucket.tf_fail_bucket (local-exec): aws_s3_bucket.subbucket - *terraform.GraphNodeConfigResource
+aws_s3_bucket.tf_fail_bucket (local-exec):   var.prefix - *terraform.GraphNodeConfigVariable
+aws_s3_bucket.tf_fail_bucket (local-exec): var.prefix - *terraform.GraphNodeConfigVariable
+aws_s3_bucket.tf_fail_bucket (local-exec): map[string]dag.Vertex{}
+aws_s3_bucket.tf_fail_bucket (local-exec): "aws"                                                                                                                                                    [35/685]
+aws_s3_bucket.tf_fail_bucket (local-exec): 2016/08/03 17:00:55 [DEBUG] plugin: waiting for all plugin processes to complete...
+aws_s3_bucket.tf_fail_bucket (local-exec): e:Error configuring: 1 error(s) occurred:
+
+aws_s3_bucket.tf_fail_bucket (local-exec): * aws_s3_bucket.subbucket: provider aws couldn't be found
+Error applying plan:
+
+1 error(s) occurred:
+
+* Error running command 'PREFIX=acrites provision/subtf': exit status 1. Output: 2016/08/03 17:00:55 [INFO] Terraform version: 0.7.0  e822a79165dbc06bbf8271ee349fe256867d53dc
+2016/08/03 17:00:55 [DEBUG] Detected home directory from env var: /Users/acrites
+2016/08/03 17:00:55 [DEBUG] Detected home directory from env var: /Users/acrites
+2016/08/03 17:00:55 [DEBUG] Attempting to open CLI config file: /Users/acrites/.terraformrc
+2016/08/03 17:00:55 [DEBUG] File doesn't exist, but doesn't need to. Ignoring.
+2016/08/03 17:00:55 [DEBUG] Detected home directory from env var: /Users/acrites
+2016/08/03 17:00:55 [DEBUG] New state was assigned lineage "ee440016-1863-4e88-acc7-0985c60953cf"
+2016/08/03 17:00:55 [TRACE] Graph after step *terraform.ConfigTransformer:
+
+aws_s3_bucket.subbucket - *terraform.GraphNodeConfigResource
+  var.prefix - *terraform.GraphNodeConfigVariable
+var.prefix - *terraform.GraphNodeConfigVariable
+2016/08/03 17:00:55 [TRACE] Graph after step *terraform.OrphanTransformer:
+
+aws_s3_bucket.subbucket - *terraform.GraphNodeConfigResource
+  var.prefix - *terraform.GraphNodeConfigVariable
+var.prefix - *terraform.GraphNodeConfigVariable
+Error configuring: 1 error(s) occurred:
+
+* aws_s3_bucket.subbucket: provider aws couldn't be found
+2016/08/03 17:00:55 [TRACE] Graph after step *terraform.AddOutputOrphanTransformer:
+
+aws_s3_bucket.subbucket - *terraform.GraphNodeConfigResource
+  var.prefix - *terraform.GraphNodeConfigVariable
+var.prefix - *terraform.GraphNodeConfigVariable
+2016/08/03 17:00:55 [TRACE] Graph after step *terraform.MissingProviderTransformer:
+
+aws_s3_bucket.subbucket - *terraform.GraphNodeConfigResource
+  var.prefix - *terraform.GraphNodeConfigVariable
+var.prefix - *terraform.GraphNodeConfigVariable
+map[string]dag.Vertex{}
+
+"aws"
+2016/08/03 17:00:55 [DEBUG] plugin: waiting for all plugin processes to complete...
+Terraform does not automatically rollback in the face of errors.
+Instead, your Terraform state file has been partially updated with
+any resources that successfully completed. Please address the error
+above and apply again to incrementally change your infrastructure.
